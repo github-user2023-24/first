@@ -1,1 +1,85 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+	<title>🍑 | Your Site 🤤🥵👄</title>
+  <style>
+    /* add css for nav to stick to the top of the page */
+    .nav {
+      background-color: #f1f1f1;
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+    .nav a {
+      float: left;
+      color: black;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    /* css for maindiv dark theme the full page expect the navbar */
+    .maindiv {
+      margin-top: 80px;
+      background-color: #f1f1f1;
+      height: 1500px;
+    }
+
+    /* media queries for responsive layout */
+    @media screen and (max-width: 600px) {
+      /* Modify the styles for smaller screens */
+      .nav {
+        position: static;
+        background-color: #f1f1f1;
+      }
+      .nav a {
+        display: block;
+        text-align: center;
+        padding: 10px;
+      }
+      .maindiv {
+        margin-top: 20px;
+        height: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+	<!-- add a navbar on the top of the page which will not move. Add class also -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <!-- add a div which will cover the page fully, add dark theme, and give it class "maindiv" -->
+  <div class="maindiv">
+    <h1>Image generator 🍑</h1>
+    <p>generate high quality images every 5 sec</p>
+  </div>
+  <script>
+    function generate() {
+      var imagetype = [`pussy`, `thigh`, `boobs`, `ass`, `gonewild`, `4k`];
+        var randomitem = Math.floor(Math.random() * imagetype.length);
+      fetch(`https://nekobot.xyz/api/image?type=${imagetype[randomitem]}`).then(data => data.json()).then(data => {
+        appendimg(data.message);
+      }).catch()
+    };
+    generate();
+    setInterval(() => {
+      generate();
+    }, 5000)
+    function appendimg(link) {
+      //create a new img element
+      var img = document.createElement("img");
+      //set the src of the img element to the link param
+      img.src = link;
+      //append the img element to the maindiv
+      document.querySelector(".maindiv").appendChild(img);
+    }
+  </script>
+</body>
+</html>
