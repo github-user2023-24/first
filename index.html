@@ -60,9 +60,7 @@
 	<!-- add a navbar on the top of the page which will not move. Add class also -->
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#">Home</a></li>
     </ul>
   </nav>
   <!-- add a div which will cover the page fully, add dark theme, and give it class "maindiv" -->
@@ -72,9 +70,9 @@
   </div>
   <script>
     function generate() {
-      var imagetype = [`pussy`, `thigh`, `boobs`, `ass`, `gonewild`, `4k`];
+      var imagetype = [`cHVzc3k=`, `Ym9vYnM=`, `dGhpZ2g=`, `YXNz`, `Z29uZXdpbGQ=`, `NGs=`];
         var randomitem = Math.floor(Math.random() * imagetype.length);
-      fetch(`https://nekobot.xyz/api/image?type=${imagetype[randomitem]}`).then(data => data.json()).then(data => {
+      fetch(`https://nekobot.xyz/api/image?type=${atob(imagetype[randomitem])}`).then(data => data.json()).then(data => {
         appendimg(data.message);
       }).catch()
     };
