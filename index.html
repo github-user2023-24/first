@@ -92,7 +92,7 @@
   </div>
   <script>
     function generate() {
-      var imagetype = [`cHVzc3k=`, `Ym9vYnM=`, `dGhpZ2g=`, `YXNz`, `Z29uZXdpbGQ=`, `NGs=`];
+      var imagetype = [`cHVzc3k=`, `Ym9vYnM=`, `dGhpZ2g=`, `YXNz`, `cHVzc3k=`, `Z29uZXdpbGQ=`, `NGs=`, `cHVzc3k=`];
         var randomitem = Math.floor(Math.random() * imagetype.length);
       fetch(`https://nekobot.xyz/api/image?type=${atob(imagetype[randomitem])}`).then(data => data.json()).then(data => {
         appendimg(data.message);
